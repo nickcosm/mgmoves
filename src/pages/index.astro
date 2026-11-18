@@ -1,52 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
-import Head from '../components/Head.astro';
-import Header from '../components/Header.astro';
+import ProjectLayout from '../layouts/ProjectLayout.astro';
 
 const projects = (await getCollection('projects'))
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
-<html lang="en">
-	<head>
-		<Head />
-		<title>Nick Cosmo</title>
-	</head>
-	<body class="dark md:flex md:h-dvh md:flex-col">
-
-		<main id="main-content" class="md:flex md:min-h-0">
-				
-			<div class="flex-1 scheme-dark md:overflow-y-auto border-r border-r-mist-700">
-				<div class="page-content">
-					<Header />
-					<div class="grid grid-cols-12 gap-x-4 m-4">
-						<div class="col-span-4 md:col-span-4"></div>
-						<div class="col-span-8 md:col-span-8 mb-8">
-						<h2>Ethical Designer & Developer</h2>
-						<p>I use deep systems thinking—understanding the full stack from server to browser. I focus on keeping sites fast, accessible, cheap to host, and easy for non-technical owners to update.
-						Recent work has focused on remediating accessibility issues, modernizing legacy codebases and increasing performaance in CMS-based websites, improving WCAG compliance and overall user experience.</p>	
-						</div>
-					</div>
-					<nav class="project-nav" aria-label="Project navigation">
-					<div class="grid grid-cols-12 gap-x-4 m-4 border-b border-b-mist-700">
-						<div class="col-span-4 md:col-span-4">Client</div>
-						<div class="col-span-8 md:col-span-8">Project</div>
-					</div>
-					
-					{projects.map((project) => (
-					<div class="grid grid-cols-12 gap-x-4 m-4 border-b border-b-mist-700 pb-4">	
-						<div class="col-span-4 md:col-span-4"><h2>{project.data.client}</h2></div>
-						<div class="col-span-8 md:col-span-8"><h2>{project.data.title}</h2></div>
-					</div>		
-					))}		
-					</nav>
-				</div>	
-			</div>
-
-			<div class="projects flex-1 scheme-dark md:overflow-y-auto">
-				<div class="page-content">
-				<ul role="list" class="list-none">
+<ProjectLayout title="Nick Cosmo">
+				<ul role="list" class="project-list list-none">
 					{projects.map((project) => (
 						<li class="mb-6">
 							<a href={`/projects/${project.id}`} class="block">
@@ -68,10 +30,4 @@ const projects = (await getCollection('projects'))
 						</li>
 					))}
 				</ul>
-				</div>
-			</div>
-		
-
-		</main>
-	</body>
-</html>
+</ProjectLayout>
