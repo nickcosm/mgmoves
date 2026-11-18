@@ -17,6 +17,11 @@ body {
 h1, h2 {
     margin-bottom: 1rem;
 }
+.project-nav h2 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    line-height: 1.65rem;
+}
 .content a {
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -33,6 +38,7 @@ ul {
     margin-top: 1rem;
 }
 .projects ul {
+    margin-top: 0;
     list-style: none;
 }
 .skip-link {
@@ -63,11 +69,6 @@ ul {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    contain: layout;
-}
-.pages {
-    width: 100%;
-    flex: 1 0 auto;
 }
 .page-content {
     padding: 1rem;
