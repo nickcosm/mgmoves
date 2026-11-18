@@ -16,6 +16,9 @@ export default config({
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
+        client: fields.text({ label: 'Client' }),
+        coverAlt: fields.text({ label: 'Cover Image Alt Text' }),
+        year: fields.text({ label: 'Year' }),
         content: fields.markdoc({ label: 'Content' }),
         cover: fields.image({
           label: "Cover Image",

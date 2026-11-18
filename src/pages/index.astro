@@ -14,45 +14,63 @@ const projects = (await getCollection('projects'))
 		<title>Nick Cosmo</title>
 	</head>
 	<body class="dark md:flex md:h-dvh md:flex-col">
-		<Header />
-		<main id="main-content" class="pb-16 md:flex md:min-h-0 md:flex-1 md:flex-col">
-			<div class="content grid grid-cols-8 gap-x-4 m-4 md:min-h-0 md:flex-1 md:grid-rows-[1fr]">
-				<div class="col-span-8 md:col-span-2 mt-2 md:min-h-0 scheme-dark md:overflow-y-auto">
-					<h2>Freelance web developer with a focus on improving accessibility.</h2>
-					<ul role="list" class="list-inside list-disc mt-5 mb-5">
-						<li>CMS specialist since 2008</li>
-						<li>Lead developer & Project manager on hundreds of projects</li>
-						<li>Accessibility Remediation Specialist</li>
-						<li>Specialised Legacy / CMS → Modern Static Migration + Performance Specialist</li>
-					</ul>
-					<p>Recent work has focused on auditing and remediating accessibility issues in CMS-based websites, improving WCAG compliance and overall user experience.</p>
-					<p>&nbsp;</p>
-					<p>CV: <a target="_blank" href="/Nick_Halstead_CV.pdf">Download my CV</a></p>			
-				</div>
-				<div class="col-span-8 md:col-span-2 mt-2 md:min-h-0 scheme-dark md:overflow-y-auto">
-				</div>
-				<div class="projects col-span-8 md:col-span-4 mt-2 md:min-h-0 scheme-dark md:overflow-y-auto">
-					<h2>Selected Projects</h2>
-					<ul role="list" class="list-none">
-						{projects.map((project) => (
-							<li class="mb-6">
-								<a href={`/projects/${project.id}`} class="block">
-									{project.data.cover && (
-										<Image
-											src={project.data.cover}
-											alt={project.data.coverAlt ?? ''}
-											widths={[480, 960, 1440]}
-											sizes="(min-width: 768px) 50vw, 100vw"
-											class="mb-2 h-auto w-full"
-										/>
-									)}
-									{project.data.title}
-								</a>
-							</li>
-						))}
-					</ul>
+
+		<main id="main-content" class="md:flex md:min-h-0">
+				
+			<div class="flex-1 scheme-dark md:overflow-y-auto border-r border-r-mist-700">
+				<div class="page-content">
+					<Header />
+					<div class="grid grid-cols-12 gap-x-4 m-4 border-b border-b-mist-700 pb-4">
+						<div class="col-span-4 md:col-span-4"></div>
+						<div class="col-span-8 md:col-span-8">
+						<h2>Ethical Designer & Developer</h2>
+						<p>I use deep systems thinking—understanding the full stack from server to browser. I focus on keeping sites fast, accessible, cheap to host, and easy for non-technical owners to update.
+						Recent work has focused on remediating accessibility issues, modernizing legacy codebases and increasing performaance in CMS-based websites, improving WCAG compliance and overall user experience.</p>	
+						</div>
+					</div>
+					<div class="grid grid-cols-12 gap-x-4 m-4">
+						<div class="col-span-4 md:col-span-4">Client</div>
+						<div class="col-span-8 md:col-span-8">Project</div>
+					</div>
+					
+					{projects.map((project) => (
+					<div class="grid grid-cols-12 gap-x-4 m-4 border-b border-b-mist-700 pb-4">	
+						<div class="col-span-4 md:col-span-4"><h2>{project.data.client}</h2></div>
+						<div class="col-span-8 md:col-span-8"><h2>{project.data.title}</h2></div>
+					</div>		
+					))}		
+					
+				</div>	
+			</div>
+
+			<div class="projects flex-1 scheme-dark md:overflow-y-auto">
+				<div class="page-content">
+				<ul role="list" class="list-none">
+					{projects.map((project) => (
+						<li class="mb-6">
+							<a href={`/projects/${project.id}`} class="block">
+								{project.data.cover && (
+									<Image
+										src={project.data.cover}
+										alt={project.data.coverAlt ?? ''}
+										widths={[480, 960, 1440]}
+										sizes="(min-width: 768px) 50vw, 100vw"
+										class="mb-2 h-auto w-full"
+									/>
+								)}
+								<div class="grid grid-cols-12 gap-x-4 m-4">
+									<div class="col-span-4 md:col-span-4">{project.data.client}</div>
+									<div class="col-span-6 md:col-span-6">{project.data.title}</div>
+									<div class="col-span-2 md:col-span-2">{project.data.year}</div>
+								</div>
+							</a>
+						</li>
+					))}
+				</ul>
 				</div>
 			</div>
+		
+
 		</main>
 	</body>
 </html>

@@ -13,6 +13,8 @@ const projects = defineCollection({
     // Use the image() helper so Astro treats it as a local asset
     cover: image().optional(), 
     coverAlt: z.string().optional(),
+    client: z.string().optional(),
+    year: z.string().optional(),
   }),
 });
 

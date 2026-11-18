@@ -9,6 +9,10 @@ body {
     background-color: var(--background-1);
     color: var(--text-1);
     font-size: 14px;
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }
 h1, h2 {
     margin-bottom: 1rem;
@@ -51,4 +55,21 @@ ul {
     height: auto;
     transform: translateX(-50%);
     outline: 2px solid #000;
+}
+.page-layout {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    contain: layout;
+}
+.pages {
+    width: 100%;
+    flex: 1 0 auto;
+}
+.page-content {
+    padding: 1rem;
+    text-align: left;
 }
