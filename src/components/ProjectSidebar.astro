@@ -23,12 +23,12 @@ const projects = (await getCollection('projects'))
 				<div class="col-span-8 md:col-span-8">Project</div>
 			</div>
 			{projects.map((project) => (
-				<div class="grid grid-cols-12 gap-x-4 m-4 border-b border-b-mist-700 pb-4">
-					<a href={`/projects/${project.id}`} class="block">
-					<div class="col-span-4 md:col-span-4"><h2>{project.data.client}</h2></div>
-					<div class="col-span-8 md:col-span-8"><h2>{project.data.title}</h2></div>
-					</a>
-				</div>
+				<a href={`/projects/${project.id}`} class="block">
+					<div class="grid grid-cols-12 gap-x-4 m-4 border-b border-b-mist-700 pb-4">
+						<div class="col-span-4 md:col-span-4"><h2>{project.data.client}</h2></div>
+						<div class="col-span-8 md:col-span-8"><h2>{project.data.title}</h2></div>
+					</div>
+				</a>
 			))}
 		</nav>
 	</div>
