@@ -6,16 +6,19 @@ import ProjectLayout from '../../layouts/ProjectLayout.astro';
 const slug = Astro.params.slug;
 const project = slug ? await getEntry('projects', slug) : undefined;
 const Content = project ? (await render(project)).Content : undefined;
-
 if (!project) {
   Astro.response.status = 404;
 }
 ---
 <ProjectLayout title={`${project ? project.data.title : 'Project not found'} / Nick Cosmo`}>
-	<a href="/">All projects</a>
+	
 	{project && Content ? (
-		<article class="content project-content">
-			<h1>{project.data.title}</h1>
+		<article class="content project-content border-b border-b-mist-700">
+			<div class="grid grid-cols-12 gap-x-4 m-4 border-b border-b-mist-700">
+				<div class="col-span-4 md:col-span-4">{project.data.client}</div>
+				<div class="col-span-6 md:col-span-6">{project.data.title}</div>
+				<div class="col-span-2 md:col-span-2">{project.data.year}</div>
+			</div>
 			{project.data.cover && (
 				<Image
 					src={project.data.cover}
@@ -25,8 +28,33 @@ if (!project) {
 					class="mb-2 h-auto w-full"
 				/>
 			)}
-			<Content />
+			<div class="grid grid-cols-12 gap-x-4 m-4">
+				<div class="col-span-4 md:col-span-4">
+					{(project.data.wcagAuditBefore || project.data.wcagAuditAfter) && (
+					<div class="project-downloads">
+						{project.data.wcagAuditBefore && (
+							<a href={project.data.wcagAuditBefore} download>
+								Download WCAG audit before
+							</a>
+						)}
+						{project.data.wcagAuditAfter && (
+							<a href={project.data.wcagAuditAfter} download>
+								Download WCAG audit after
+							</a>
+						)}
+					</div>
+					)}
+				</div>
+				<div class="col-span-4 md:col-span-8">
+					<Content />
+				</div>
+			</div>
 		</article>
+		<div class="grid grid-cols-12 gap-x-4 m-4 border-b border-b-mist-700">
+			<div class="col-span-12">
+				<a href="/">Index</a>
+			</div>
+		</div>
 	) : (
 		<h1>Project not found</h1>
 	)}

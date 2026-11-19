@@ -15,6 +15,8 @@ const projects = defineCollection({
     coverAlt: z.string().optional(),
     client: z.string().optional(),
     year: z.string().optional(),
+    wcagAuditBefore: z.string().nullable().optional(),
+    wcagAuditAfter: z.string().nullable().optional(),
   }),
 });
 

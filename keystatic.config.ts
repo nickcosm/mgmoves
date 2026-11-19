@@ -25,6 +25,18 @@ export default config({
           directory: "src/content/projects",
           publicPath: "/src/content/projects/",
         }),
+        wcagAuditBefore: fields.file({
+          label: 'WCAG Audit Report (Before)',
+          description: 'Optional initial accessibility audit report (e.g., PDF or CSV).',
+          directory: 'public/reports',
+          publicPath: '/reports/',
+          }),
+        wcagAuditAfter: fields.file({
+          label: 'WCAG Audit Report (After)',
+          description: 'Optional follow-up accessibility audit report (e.g., PDF or CSV).',
+          directory: 'public/reports',
+          publicPath: '/reports/',
+        }),
       },
     }),
     pages: collection({
