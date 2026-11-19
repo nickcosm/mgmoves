@@ -74,3 +74,10 @@ ul {
     padding: 1rem;
     text-align: left;
 }
+.project-content ul {
+    margin-top: 0;
+    list-style: none;
+}
+.project-content p {
+    padding-bottom: 1rem;
+}

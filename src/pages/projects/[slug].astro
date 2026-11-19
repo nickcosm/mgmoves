@@ -32,17 +32,30 @@ if (!project) {
 				<div class="col-span-4 md:col-span-4">
 					{(project.data.wcagAuditBefore || project.data.wcagAuditAfter) && (
 					<div class="project-downloads">
+						<ul>
 						{project.data.wcagAuditBefore && (
-							<a href={project.data.wcagAuditBefore} download>
-								Download WCAG audit before
-							</a>
+							<li>
+								<a href={project.data.wcagAuditBefore} download>
+									Download WCAG audit before
+								</a>
+							</li>
 						)}
 						{project.data.wcagAuditAfter && (
-							<a href={project.data.wcagAuditAfter} download>
-								Download WCAG audit after
-							</a>
+							<li>
+								<a href={project.data.wcagAuditAfter} download>
+									Download WCAG audit after
+								</a>
+							</li>
 						)}
+					</ul>
 					</div>
+					)}
+					{project.data.website && (
+						<div class="project-website">
+							<a href={project.data.website} target="_blank" rel="noopener noreferrer">
+								Visit Website
+							</a>
+						</div>
 					)}
 				</div>
 				<div class="col-span-4 md:col-span-8">

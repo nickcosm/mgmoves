@@ -17,6 +17,7 @@ const projects = defineCollection({
     year: z.string().optional(),
     wcagAuditBefore: z.string().nullable().optional(),
     wcagAuditAfter: z.string().nullable().optional(),
+    website: z.string().nullable().optional(),
   }),
 });
 

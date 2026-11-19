@@ -37,6 +37,7 @@ export default config({
           directory: 'public/reports',
           publicPath: '/reports/',
         }),
+        website: fields.url({ label: 'Website' }),
       },
     }),
     pages: collection({
