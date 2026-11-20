@@ -29,7 +29,7 @@ if (!project) {
 				/>
 			)}
 			<div class="grid grid-cols-12 gap-x-4 my-4">
-				<div class="col-span-4 md:col-span-4">
+				<div class="col-span-12 md:col-span-4">
 					{(project.data.wcagAuditBefore || project.data.wcagAuditAfter) && (
 					<div class="project-downloads">
 						<ul>
@@ -58,7 +58,7 @@ if (!project) {
 						</div>
 					)}
 				</div>
-				<div class="col-span-4 md:col-span-8">
+				<div class="col-span-12 md:col-span-8">
 					<Content />
 				</div>
 			</div>
