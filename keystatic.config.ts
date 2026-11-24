@@ -6,7 +6,7 @@ export default config({
     kind: 'cloud',
   },
   cloud: {
-    project: 'cosmo/nickcosmo',
+    project: 'cosmo/mgmoves',
   },
   collections: {
     projects: collection({

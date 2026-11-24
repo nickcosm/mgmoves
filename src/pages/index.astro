@@ -7,7 +7,7 @@ const projects = (await getCollection('projects'))
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 
-<ProjectLayout title="Nick Cosmo">
+<ProjectLayout title="MG Moves">
 				<ul role="list" class="project-list list-none">
 					{projects.map((project) => (
 						<li class="mb-6">
