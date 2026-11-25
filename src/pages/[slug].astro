@@ -1,42 +1,18 @@
 ---
 import { getEntry, render } from 'astro:content';
-import Head from '../components/Head.astro';
-import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
 
-const slug = Astro.params.slug;
+const { slug } = Astro.params;
 const page = slug ? await getEntry('pages', slug) : undefined;
-const Content = page ? (await render(page)).Content : undefined;
 
 if (!page) {
-  Astro.response.status = 404;
+	return new Response(null, { status: 404 });
 }
+
+const { Content } = await render(page);
 ---
-<html lang="en">
-  <head>
-    <Head />
-    <title>{page ? page.data.title : 'Page not found'} / MG Moves</title>
-  </head>
-  <body class="dark md:flex md:h-dvh md:flex-col">
-    <Header />
-    <main id="main-content" class="md:flex md:min-h-0 md:flex-1 md:flex-col">
-      <div class="content grid grid-cols-8 gap-x-4 m-4 md:min-h-0 md:flex-1 md:grid-rows-[1fr]">
-					<div class="col-span-8 md:col-span-4 mt-2 md:min-h-0 scheme-dark md:overflow-y-auto">
-            {page && Content ? (
-              <>
-                <h1 class="inline-block align-middle">{page.data.title}</h1>
-                </>
-            ) : (
-              <h1>Page not found</h1>
-            )}
-          </div>
-          <div class="page-content col-span-8 md:col-span-4 mt-2 md:min-h-0 scheme-dark md:overflow-y-auto">
-              {page && Content ? (
-              <Content />
-              ) : (
-              <p>Content not available</p>
-              )}
-          </div>  
-      </div>
-    </main>
-  </body>
-</html>
+
+<Layout title={`${page.data.title} / MG Moves`}>
+	<h1>{page.data.title}</h1>
+	<Content />
+</Layout>

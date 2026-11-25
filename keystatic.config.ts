@@ -9,37 +9,6 @@ export default config({
     project: 'cosmo/mgmoves',
   },
   collections: {
-    projects: collection({
-      label: 'Projects',
-      slugField: 'title',
-      path: 'src/content/projects/*/',
-      format: { contentField: 'content' },
-      schema: {
-        title: fields.slug({ name: { label: 'Title' } }),
-        client: fields.text({ label: 'Client' }),
-        coverAlt: fields.text({ label: 'Cover Image Alt Text' }),
-        year: fields.text({ label: 'Year' }),
-        content: fields.markdoc({ label: 'Content' }),
-        cover: fields.image({
-          label: "Cover Image",
-          directory: "src/content/projects",
-          publicPath: "/src/content/projects/",
-        }),
-        wcagAuditBefore: fields.file({
-          label: 'WCAG Audit Report (Before)',
-          description: 'Optional initial accessibility audit report (e.g., PDF or CSV).',
-          directory: 'public/reports',
-          publicPath: '/reports/',
-          }),
-        wcagAuditAfter: fields.file({
-          label: 'WCAG Audit Report (After)',
-          description: 'Optional follow-up accessibility audit report (e.g., PDF or CSV).',
-          directory: 'public/reports',
-          publicPath: '/reports/',
-        }),
-        website: fields.url({ label: 'Website' }),
-      },
-    }),
     pages: collection({
       label: "Pages",
       slugField: "title",

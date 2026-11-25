@@ -81,3 +81,33 @@ ul {
 .project-content p {
     padding-bottom: 1rem;
 }
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 100%;
+    position: relative;
+    flex-grow: 1;
+    border-color: transparent;
+    border-width: 0;
+}
+.image-container.single-item {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+    margin: auto;
+    inset: 0;
+}
+.media {
+    object-position: var(--position-image, center center);
+    pointer-events: auto;
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
