@@ -8,8 +8,8 @@ body.dark {
 body {
     background-color: var(--background-1);
     color: var(--text-1);
-    font-size: 14px;
-    font-family: "Space Grotesk", sans-serif;
+    font-size: 16px;
+    font-family: "Fragment Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
