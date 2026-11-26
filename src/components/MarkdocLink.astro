@@ -13,4 +13,5 @@ const isExternal = href.startsWith('http://') || href.startsWith('https://');
   {...props}
 >
   <slot />
+  {isExternal && <span class="sr-only"> (opens in a new tab)</span>}
 </a>

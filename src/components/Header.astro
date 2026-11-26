@@ -5,21 +5,14 @@ import logo from '../assets/img/mg-moves-logo.webp';
 ---
 <a href="#main-content" class="skip-link">Skip to main content</a> 
 <header>
-  <nav class="grid grid-cols-12 gap-x-4 pb-4">
+  <nav class="grid grid-cols-12 gap-x-4 pb-4" aria-label="Contact navigation">
     <div class="col-span-6 md:col-span-6">
-        <a href="/">
-                  <Image
-                    src={logo}
-										alt="MG Moves Logo"
-										sizes="(min-width: 300px) 50vw, 100vw"
-										class="mb-2 h-auto w-fit"
-									/></a>
+        <a class="logo" href="/">MG<span class="red">MOVES . . .</span></a>
     </div>
-    <div class="col-span-3 md:col-span-3">
-      <p><a href="mailto:mgmoves@btinternet.com">Email</a>,&nbsp;<a href="tel:07904802702">Call</a>.</p> 
-    </div>
-    <div class="col-span-3 md:col-span-3">
-      <p class="contact"><a target="_blank" href="https://www.facebook.com/mgmoveslargs/">Facebook</a></p>
+    <div class="col-span-6 md:col-span-6">
+      <p><a href="mailto:mgmoves@btinternet.com">Email</a>,
+        &nbsp;<a href="tel:07904802702">Call</a>,
+        &nbsp;<a target="_blank" href="https://www.facebook.com/mgmoveslargs/">Facebook</a></p> 
     </div>
   </nav>
 </header>
